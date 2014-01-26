@@ -8,6 +8,7 @@ A rather clumsy, but working, attempt to control a servo via a node.js - serial 
 2. install node.js
 3. start server via command line -> node server.js
 4. install missing node modules with npm. example: npm install websocket
-5. when server is running: open a browser ( http://localhost:8080/ ) 
-6. move mouse from left to right
-7. Tada! keep fire extinguisher at hand :D
+5. enter the actual address of your arduino/serial connection in line 10 in server.js 
+6. when server is running: open a browser ( http://localhost:8080/ ) 
+7. move mouse from left to right
+8. Tada! keep fire extinguisher at hand :D
