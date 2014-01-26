@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+	<meta charset="utf-8">
+	<head>
+		<script type="text/javascript">
+		<!--	
+		
+			var socket;
+			var currentServoPosition = null;
+
+			document.addEventListener("DOMContentLoaded",function(){
+				initSocket();
+			},false);			
+		
+			document.addEventListener("mousemove",function(event){
+				var result = parseInt( ( event.clientX * 5 ) / window.innerWidth ) + 1;
+
+				if( result !== currentServoPosition ) {
+					currentServoPosition = result;
+					var messageObject = { count : result };
+					var msg = JSON.stringify( messageObject );
+					sendWebsocketMessage(msg);
+				};
+			},false);0
+
+			function initSocket() {
+				socket = new WebSocket(document.URL.replace("http","ws"));
+				
+				socket.onopen = function(){  
+					console.log("Socket connected");
+				};
+				
+				socket.onmessage = function(msg){
+					console.log('msg.data: ',msg.data);
+				};
+			};
+			
+			function sendWebsocketMessage(msg) {
+				socket.send(msg);
+			};
+			
+		//-->
+		</script>			
+	
+	
+	</head>
+	
+	<body>
+		
+		MOVE MOUSE LEFT AND RIGHT :) 
+
+	</body>
+	
+</html>
